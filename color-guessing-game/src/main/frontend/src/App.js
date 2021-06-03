@@ -6,52 +6,13 @@ import {
   Row,
   Container,
   Col,
-  Greeting,
 } from "react-bootstrap";
+import React from "react";
+import Typical from "react-typical";
 import "./App.css";
-
-//function Ticker({ delay }) {
-// const [count, setCount] = useState(0);
-// const [timerId, setTimerId] = useState();
-
-// const start = function () {
-//   let timerId = setInterval(() => {
-//     setCount((prevCount) => prevCount + 1);
-//   }, delay);
-//   setTimerId(timerId);
-// };
-
-// const stop = function () {
-//   clearInterval(timerId);
-//   setTimerId(null);
-//   setCount(0);
-// };
-
-// return (
-//   <div>
-//     {timerId ? (
-//       <button onClick={stop}>Stop</button>
-//     ) : (
-//       <button onClick={start}>Start</button>
-//     )}
-//   </div>
-// );
-//}
 
 function App() {
   const [game, setGame] = useState();
-  const [count, setCount] = useState(0);
-  const [isWon, setIsWon] = useState(0);
-  const [timerId, setTimerId] = useState();
-  const [mainColor, setMainColor] = useState();
-  const [sideColors, setSideColors] = useState();
-
-  const startTimer = function () {
-    let timerId = setInterval(() => {
-      setCount((prevCount) => prevCount + 1);
-    }, 250);
-    setTimerId(timerId);
-  };
 
   const startNewGame = async (complexity) => {
     const requestOptions = {
@@ -64,13 +25,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setGame(data);
-        setMainColor(data.mainColor);
-        setSideColors(data.colorsToChooseFrom);
-        setIsWon(data.isWon);
-        console.log(isWon);
       });
-
-    startTimer();
   };
 
   const checkColor = async (color) => {
@@ -87,15 +42,6 @@ function App() {
       .then((response) => response.json())
       .then((data) => setGame(data));
   };
-
-  let greeting;
-
-  if (game && game.won) {
-    console.log(game.won);
-    greeting = "Congratulations";
-  } else {
-    greeting = "";
-  }
 
   return (
     <div className="App">
@@ -131,9 +77,6 @@ function App() {
           <>
             <Row className="statRows">
               <Col>
-                <h7>Time:</h7> <h7>{count}</h7>
-              </Col>
-              <Col>
                 <h7>Rounds:</h7> {game.currentRound}/{game.rounds}
               </Col>
               <Col>
@@ -160,7 +103,44 @@ function App() {
               ))}
               <Col></Col>
             </Row>
-            <Row>{greeting}</Row>
+            <br></br>
+            <Row>
+              <Col></Col>
+              {game.won ? (
+                <Typical
+                  className="congratsText"
+                  steps={["Congratulations, you won! Play again?", 5000]}
+                />
+              ) : (
+                <div></div>
+              )}
+              <Col></Col>
+            </Row>
+            <Row>
+              <Col></Col>
+              <Col>
+                {game.won ? (
+                  <Dropdown as={ButtonGroup} onSelect={startNewGame}>
+                    <Button variant="success">Choose game complexity</Button>
+
+                    <Dropdown.Toggle
+                      split
+                      variant="success"
+                      id="dropdown-split-basic"
+                    />
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item eventKey="Easy">Easy</Dropdown.Item>
+                      <Dropdown.Item eventKey="Medium">Medium</Dropdown.Item>
+                      <Dropdown.Item eventKey="Hard">Hard</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                ) : (
+                  <div></div>
+                )}
+              </Col>
+              <Col></Col>
+            </Row>
           </>
         )}
       </Container>

@@ -10,6 +10,10 @@
   color: white;
 }
 
+.congratsText {
+  font-size: 40px;
+}
+
 .App {
   text-align: center;
 }

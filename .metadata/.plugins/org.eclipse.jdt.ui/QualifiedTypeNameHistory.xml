@@ -10,4 +10,5 @@
     <fullyQualifiedTypeName name="guess.the.color.project.logic.GuessTheColorServiceImpl"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="guess.the.color.project.logic.RoundManipulationServiceImpl"/>
 </qualifiedTypeNameHistroy>

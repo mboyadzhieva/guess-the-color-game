@@ -8,10 +8,10 @@ import lombok.Data;
 public class Game {
 	private String id;
 	private Complexity complexity;
-	private List<String> colorsToChooseFrom;
 	private String mainColor;
+	private List<String> colorsToChooseFrom;
 	private int score = 0;
-	private int currentRound = 0;
+	private int currentRound = 1;
 	private int rounds;
 	private int bestScore;
 	private int numOfStartingColors;
