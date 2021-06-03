@@ -1,0 +1,60 @@
+package guess.the.color.project.logic;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import guess.the.color.project.model.Complexity;
+import guess.the.color.project.model.Game;
+
+@Service
+public class GuessTheColorServiceImpl implements GuessTheColorService {
+
+	public Map<Long, Integer> gamesInfo = new ConcurrentHashMap<>();
+
+	public Game startNewGame() {
+		Game game = new Game();
+		game.setId(UUID.randomUUID().toString());
+		game.setMainColor(generateMainColor());
+		
+		return null;
+	}
+
+	public Integer getGameScore(Long gameId) {
+		return gamesInfo.get(gameId);
+	}
+
+	public Color generateMainColor() {
+		Random random = new Random();
+		int r = random.nextInt(205);
+		int g = random.nextInt(205);
+		int b = random.nextInt(205);
+
+		Color mainColor = new Color(r, g, b);
+		return mainColor;
+	}
+	
+	public Color generateColorsToChooseFrom(Color mainColor) {
+		Random random = new Random();
+		List<Color> sideColors = new ArrayList<Color>();
+		
+		for (int i = 0; i < 3; i++) {
+			int randomNumber = random.nextInt(50);
+			
+			int r = mainColor.getRed() + randomNumber;
+			int g = mainColor.getGreen() + randomNumber;
+			int b = mainColor.getBlue() + randomNumber;
+
+			Color color = new Color(r, g, b);
+			sideColors.add(color);
+		}
+		return mainColor;
+	}
+}

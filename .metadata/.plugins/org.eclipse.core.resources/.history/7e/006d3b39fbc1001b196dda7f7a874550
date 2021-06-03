@@ -1,0 +1,22 @@
+package guess.the.color.project.model;
+
+import java.awt.Color;
+import java.util.List;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data
+@Getter
+@Setter
+public class Game {
+	private Long id;
+	private Complexity complexity;
+	private List<Color> colorsToChooseFrom;
+	private Color mainColor;
+	private int score;
+	private int time;
+	private int rounds;
+	private int bestScore;
+}

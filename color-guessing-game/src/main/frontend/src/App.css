@@ -1,0 +1,15 @@
+.colorsToChooseFrom {
+  border-radius: 50%;
+  margin: 4px 2px;
+  height: 100px;
+  width: 100px;
+}
+
+.statRows {
+  background-color: black;
+  color: white;
+}
+
+.App {
+  text-align: center;
+}

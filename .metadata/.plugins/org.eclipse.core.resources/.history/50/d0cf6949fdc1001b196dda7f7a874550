@@ -1,0 +1,13 @@
+package guess.the.color.project.logic;
+
+import org.springframework.stereotype.Service;
+
+import guess.the.color.project.model.Game;
+
+@Service
+public class GuessTheColorServiceImpl implements GuessTheColorService {
+
+	public Game startNewGame() {
+		return null;
+	}
+}

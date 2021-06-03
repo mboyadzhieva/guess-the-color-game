@@ -1,0 +1,5 @@
+package guess.the.color.project.model;
+
+public class Game {
+
+}
