@@ -22,9 +22,11 @@ Upon finishing the game, the player gets a congratulations message and is prompt
 
 ## Ways to check out the application
 ### 1. Access the deployed version at [Color Guessing Game](https://guess-the-colour-game.herokuapp.com/)
-### 2. Download the source code and:
+### 2. Download the source code:
+- Prerequisites: Java 11 or up and Apache Maven
 - Navigate to _color-guessing-game/_
-- run `mvn spring-boot:run`
+- Run `mvn spring-boot:run`
+- Go to localhost:8080 in your browser
 ### 3. Screenshots:
 
 - Home page: 
