@@ -1,9 +1,0 @@
-package guess.the.color.project.model;
-
-import lombok.Data;
-
-@Data
-public class Game {
-	public Long id;
-	public Complexity complexity;
-}
