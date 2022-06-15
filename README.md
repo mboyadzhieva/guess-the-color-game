@@ -1,5 +1,4 @@
 # Guess the Color Game
-This application is a very simple game in which the player sees a text reading **Which color is this?** in a randomly generated color. Underneath the text, there're a few options of colors for the player to choose from. The goal is to pick the same color as the text above.
 
 ## Rules
 There're three levels of complexity:
