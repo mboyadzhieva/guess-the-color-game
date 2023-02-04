@@ -21,7 +21,7 @@ Upon finishing the game, the player gets a congratulations message and is prompt
 - No database is used. The best score value is stored in the HttpSession. Everything else is generated every time the user requests it.
 
 ## Ways to check out the application
-### 1. Access the deployed version at [Color Guessing Game](https://guess-the-colour-game.herokuapp.com/)
+### 1. Access the deployed version at [Color Guessing Game](https://guess-the-colour-game.herokuapp.com/) (Currently unavailable)
 ### 2. Download the source code:
 - Prerequisites: Java 11 or up and Apache Maven
 - Navigate to _color-guessing-game/_
